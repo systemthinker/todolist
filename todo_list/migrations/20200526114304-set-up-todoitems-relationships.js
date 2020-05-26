@@ -1,11 +1,9 @@
-"use strict";
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.addColumn("todoLists", "userId", {
+    await queryInterface.addColumn("todoItems", "todoListId", {
       type: Sequelize.INTEGER,
       references: {
-        model: "users",
+        model: "todoLists",
         key: "id",
       },
       onUpdate: "CASCADE",
@@ -13,7 +11,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.removeColumn("todoLists", "userId");
+    await queryInterface.removeColumn("todoItems", "todoListId");
   },
 };
-

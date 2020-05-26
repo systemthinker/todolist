@@ -7,10 +7,12 @@ module.exports = (sequelize, DataTypes) => {
       email: DataTypes.STRING,
       phone: DataTypes.INTEGER,
     },
-    {}
+    {
+      // freezeTableName: true,
+    }
   );
   User.associate = function (models) {
-    // associations can be defined here
+    User.hasMany(models.todoList)
   };
   return User;
 };

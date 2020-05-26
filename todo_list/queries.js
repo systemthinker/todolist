@@ -1,6 +1,6 @@
 const { Op } = require("sequelize");
 
-const TodoItem = require("./models").todoitem;
+const TodoItem = require("./models").todoItem;
 const User = require("./models").user;
 
 
@@ -10,19 +10,11 @@ async function searchTodoItems(){
         
         const search2 = await User.findByPk(1)
 
-        // const search3 = await User.create({
-        //     name: "Robbert",
-        //     email: "robbert@robbert.com",
-        //     phone: 1234 
-        // })
+      
 
-        const search4 = await TodoItem.findAll({
-            where: {
-                important: true
-            }
-        }).map(item => item.get({plain:true}));
+       
 
-        return search4
+        return search1
         
 
     } catch(e){
