@@ -1,6 +1,6 @@
 "use strict";
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define(
+  const user = sequelize.define(
     "user",
     {
       name: DataTypes.STRING,
@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
       // freezeTableName: true,
     }
   );
-  User.associate = function (models) {
-    User.hasMany(models.todoList)
+  user.associate = function (models) {
+    user.hasMany(models.todoList, {  foreignKey: 'userId',})
   };
-  return User;
+  return user;
 };

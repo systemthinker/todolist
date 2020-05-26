@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     // freezeTableName: true,
   });
   todoItem.associate = function(models) {
-    todoItem.belongsTo(models.todoList)
+    todoItem.belongsTo(models.todoList, { foreignKey: 'todoListId',})
   };
   return todoItem;
 };

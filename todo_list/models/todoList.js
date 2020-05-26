@@ -6,10 +6,9 @@ module.exports = (sequelize, DataTypes) => {
     // freezeTableName: true,
   });
   todoList.associate = function(models) {
-    todoList.belongsTo(models.user)
-  };
-  todoList.associate = function(models) {
+    todoList.belongsTo(models.user, { foreignKey: 'userId',})
     todoList.hasMany(models.todoItem)
   };
+  
   return todoList;
 };
